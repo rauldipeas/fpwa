@@ -27,8 +27,8 @@ ADDRESS='$2'
 TRAY='$3'
 ATTENTION='$4'
 mkdir -p /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://github.com/rauldipeas/fpwa/webapp-userChrome.css
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://github.com/rauldipeas/webapp-user.js
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-userChrome.css
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-user.js
 export MOZ_USE_XINPUT2=1
 kdocker -i "\$TRAY" -I "\$ATTENTION" -d15 -mq firefox --name="\$PWA" --class="\$PWA" -no-remote --profile "/opt/firefox-pwa/\$USER/\$PWA/profile" \$ADDRESS
 EOF
@@ -40,8 +40,8 @@ PWA='$1'
 ADDRESS='$2'
 TRAY='$3'
 mkdir -p /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://github.com/rauldipeas/fpwa/webapp-userChrome.css
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://github.com/rauldipeas/webapp-user.js
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-userChrome.css
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-user.js
 export MOZ_USE_XINPUT2=1
 kdocker -i \$TRAY -d15 -mq firefox --name="\$PWA" --class="\$PWA" -no-remote --profile "/opt/firefox-pwa/\$USER/\$PWA/profile" \$ADDRESS
 EOF
@@ -52,8 +52,8 @@ set -e
 PWA='$1'
 ADDRESS='$2'
 mkdir -p /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://github.com/rauldipeas/fpwa/webapp-userChrome.css
-wget -qO- /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://github.com/rauldipeas/webapp-user.js
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/chrome/userChrome.css https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-userChrome.css
+wget -qO /opt/firefox-pwa/"\$USER"/"\$PWA"/profile/user.js https://raw.githubusercontent.com/rauldipeas/fpwa/main/webapp-user.js
 export MOZ_USE_XINPUT2=1
 firefox --name="\$PWA" --class="\$PWA" -no-remote --profile "/opt/firefox-pwa/\$USER/\$PWA/profile" \$ADDRESS
 EOF
